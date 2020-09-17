@@ -13,7 +13,7 @@ nlp text classification task program on IMDB dataset
 文件说明：
 
 - TextCNN.py 是整体文件，测试时把训练那部分注释掉
-- TextCNN_parallel.py 用分布式并行的相关代码改造上个文件，提升了训练的效率（约5倍）
+- TextCNN_parallel.py 用分布式并行的相关代码改造上个文件，提升了训练的效率（约5倍），详见博客：https://www.cnblogs.com/yh-blog/p/12877922.html
 
 ### Bert-pytorch实现
 

@@ -29,6 +29,7 @@ def convert_text_to_ids(tokenizer, sentence, limit_size=MAXLEN):
 
 
 '''构建数据集和迭代器'''
+
 input_ids = [convert_text_to_ids(tokenizer, sen) for sen in process_imdb.train_samples]
 # input_labels = process_imdb.get_onehot_labels(process_imdb.train_labels)
 input_labels = torch.unsqueeze(torch.tensor(process_imdb.train_labels), dim=1)
@@ -54,7 +55,7 @@ train_loader = DataLoader(dataset=train_set,
                           )
 
 for i, (train, mask, label) in enumerate(train_loader):
-    print(train.shape, mask.shape, label.shape)  ##torch.Size([16, 128]) torch.Size([16, 128]) torch.Size([16, 1])
+    print(train.shape, mask.shape, label.shape)  ##torch.Size([8,512]) torch.Size([8,512]) torch.Size([8, 1])
     break
 
 input_ids2 = [convert_text_to_ids(tokenizer, sen) for sen in process_imdb.test_samples]
@@ -73,7 +74,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 '''预测函数，用于预测结果'''
 
-
 def predict(logits):
     res = torch.argmax(logits, dim=1)  # 按行取每行最大的列下标
     return res
@@ -81,13 +81,11 @@ def predict(logits):
 
 '''训练'''
 
-
 def train_model(net, epoch=1):
     avg_loss = []
-    net.train()  # 必备，将模型设置为训练模式
+    net.train()  # 将模型设置为训练模式
     net.to(device)
 
-    # criterion = nn.BCEWithLogitsLoss()    # 使用nn.BCELoss需要在该层前面加上Sigmoid函数
     optimizer = AdamW(net.parameters(), lr=5e-5)
 
     accumulation_steps = 8
@@ -96,13 +94,11 @@ def train_model(net, epoch=1):
             # optimizer.zero_grad()
             data, mask, target = data.to(device), mask.to(device), target.to(device)
             loss, logits = net(data, token_type_ids=None, attention_mask=mask, labels=target)
-            # loss logit是正负概率
+            # logit是正负概率
 
             loss = loss / accumulation_steps  # 梯度积累
             avg_loss.append(loss.item())
             loss.backward()
-
-            # optimizer.step()
 
             if ((batch_idx + 1) % accumulation_steps) == 0:
                 # 每 8 次更新一下网络中的参数

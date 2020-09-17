@@ -11,9 +11,9 @@ Bert-pytorch实现，借助了huggingface的开源仓库 https://github.com/hugg
 
 官方fine-tune参数推荐
 
-• Batch size: 16, 32
-• Learning rate (Adam): 5e-5, 3e-5, 2e-5
-• Number of epochs: 3, 4
+- Batch size: 16, 32
+- Learning rate (Adam): 5e-5, 3e-5, 2e-5
+- Number of epochs: 3, 4
 
 
 

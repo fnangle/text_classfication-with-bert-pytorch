@@ -12,7 +12,8 @@ nlp text classification task program on IMDB dataset
 
 文件说明：
 
-- TextCNN.py 是整体文件，测试时把训练那部分注释掉
+- TextCNN_keras.py 用tf2中的keras写的CNN文本分类，acc不太高. 训练集划出来0.1的比例作为验证集
+- TextCNN.py 是pytorch版本，用了glove词向量，测试时把训练那部分注释掉
 - TextCNN_parallel.py 用分布式并行的相关代码改造上个文件，提升了训练的效率（约5倍），详见博客：https://www.cnblogs.com/yh-blog/p/12877922.html
 
 ### Bert-pytorch实现
@@ -35,5 +36,5 @@ nlp text classification task program on IMDB dataset
 
 | result  | acc |       
 | :----: | :----: |
-| TextCNN  | 87.27% |
+| TextCNN（keras）  | 87.27% |
 | Bert  | 95.18%| 

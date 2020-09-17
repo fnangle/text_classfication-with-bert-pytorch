@@ -5,8 +5,8 @@ nlp text classification task program on IMDB dataset
 共50000条电影评论，正负各一半，训练和测试各一半。
 下载：http://ai.stanford.edu/~amaas/data/sentiment/
 
-## 自己nlp学习的记录：
-去年用比较经典的模型来做文本分类，写的比较粗糙，没有特意调参：  
+## 模型说明：
+大概是自己nlp学习的一点记录，去年用比较经典的模型来做文本分类，写的比较粗糙，没有特意调参：  
 
 ### TextCNN-pytorch实现、keras实现
 

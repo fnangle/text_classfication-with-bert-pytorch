@@ -6,7 +6,7 @@ nlp text classification task program on IMDB dataset
 下载：http://ai.stanford.edu/~amaas/data/sentiment/
 
 ## 模型说明：
-大概是自己nlp学习的一点记录，去年用比较经典的模型来做文本分类，写的比较粗糙，没有特意调参：  
+大概是自己nlp学习的一点记录，去年用比较经典的模型写的文本分类，比较粗糙，没有特意调参：  
 
 ### TextCNN-pytorch实现、keras实现
 
@@ -32,7 +32,7 @@ nlp text classification task program on IMDB dataset
 - Learning rate (Adam): 5e-5, 3e-5, 2e-5
 - Number of epochs: 3, 4
 
-
+## Results
 
 | result  | acc |       
 | :----: | :----: |

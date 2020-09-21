@@ -9,7 +9,7 @@ import numpy as np
 # 使用BERT使其向量化
 
 MAXLEN = 512 - 2
-batchsize = 8
+BATCHSIZE = 8
 
 from transformers import BertForSequenceClassification, AdamW, BertTokenizer, BertModel
 from transformers import get_linear_schedule_with_warmup
@@ -50,7 +50,7 @@ atten_token_train = get_att_masks(input_ids)
 train_set = TensorDataset(torch.LongTensor(input_ids), torch.LongTensor(atten_token_train),
                           torch.LongTensor(input_labels))
 train_loader = DataLoader(dataset=train_set,
-                          batch_size=batchsize,
+                          batch_size=BATCHSIZE,
                           shuffle=True
                           )
 
@@ -64,7 +64,7 @@ atten_tokens_eval = get_att_masks(input_ids2)
 test_set = TensorDataset(torch.LongTensor(input_ids2), torch.LongTensor(atten_tokens_eval),
                          torch.LongTensor(input_labels2))
 test_loader = DataLoader(dataset=test_set,
-                         batch_size=batchsize, )
+                         batch_size=BATCHSIZE, )
 
 for i, (train, mask, label) in enumerate(test_loader):
     print(train.shape, mask.shape, label.shape)  #

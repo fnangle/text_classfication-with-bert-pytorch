@@ -35,7 +35,7 @@ input_ids = [convert_text_to_ids(tokenizer, sen) for sen in process_imdb.train_s
 input_labels = torch.unsqueeze(torch.tensor(process_imdb.train_labels), dim=1)
 
 
-def attention_masks(input_ids):
+def get_att_masks(input_ids):
     atten_masks = []
     for seq in input_ids:
         seq_mask = [float(i > 0) for i in seq]
@@ -43,7 +43,7 @@ def attention_masks(input_ids):
     return atten_masks
 
 
-atten_token_train = attention_masks(input_ids)
+atten_token_train = get_att_masks(input_ids)
 
 '''构建数据集和数据迭代器，设定 batch_size 大小为'''
 
@@ -60,7 +60,7 @@ for i, (train, mask, label) in enumerate(train_loader):
 
 input_ids2 = [convert_text_to_ids(tokenizer, sen) for sen in process_imdb.test_samples]
 input_labels2 = torch.unsqueeze(torch.tensor(process_imdb.test_labels), dim=1)
-atten_tokens_eval = attention_masks(input_ids2)
+atten_tokens_eval = get_att_masks(input_ids2)
 test_set = TensorDataset(torch.LongTensor(input_ids2), torch.LongTensor(atten_tokens_eval),
                          torch.LongTensor(input_labels2))
 test_loader = DataLoader(dataset=test_set,

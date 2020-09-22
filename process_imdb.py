@@ -4,18 +4,6 @@ vocab=[]  #词表
 """
 将原始的文件处理成 评论列表和标签列表
 """
-vocab_dir='aclImdb/imdb.vocab'
-def get_vocab():
-    with open(vocab_dir,'r') as fo:
-        words=fo.readlines()
-    for i,word in enumerate(words):
-        word=str(word).strip('\n')
-        vocab.append(word)
-    return vocab
-get_vocab()
-# print('len of vocab:',len(vocab))
-
-
 # 从pos以及neg样例中共抽取25000个样本
 imdb_dir = './aclImdb'
 train_dir=os.path.join(imdb_dir,'train')

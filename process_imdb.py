@@ -56,7 +56,6 @@ for id in idx:
 # y=labels
 print(x[-1:],y[-1:])
 
-#取前 作为训练集，1000作为
 TRAINSET_SIZE = 25000
 TESTSET_SIZE = 25000
 

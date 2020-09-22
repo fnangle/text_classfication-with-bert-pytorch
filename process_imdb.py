@@ -21,7 +21,8 @@ imdb_dir = './aclImdb'
 train_dir=os.path.join(imdb_dir,'train')
 test_dir=os.path.join(imdb_dir,'test')
 
-def file_list(f_dir,labels=[],texts=[]):
+def file_list(f_dir):
+    labels=[];texts=[]
     for label_type in ['neg','pos']:
         dir_name=os.path.join(f_dir,label_type)
         for fname in os.listdir(dir_name):

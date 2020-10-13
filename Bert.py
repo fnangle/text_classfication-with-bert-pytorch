@@ -121,7 +121,6 @@ def test_model(net):
     correct = 0
     total = 0
     with torch.no_grad():
-        print(111)
         for batch_idx, (data, mask, label) in enumerate(test_loader):
             logging.info("test batch_id=" + str(batch_idx))
 

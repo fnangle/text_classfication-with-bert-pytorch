@@ -26,10 +26,10 @@ nlp text classification task program on IMDB dataset
 
 借助了huggingface的开源仓库 https://github.com/huggingface/transformers. 
 
-官方fine-tune参数推荐
+官方fine-tune参数推荐 https://github.com/google-research/bert
 
-- Batch size: 16, 32
-- Learning rate (Adam): 5e-5, 3e-5, 2e-5
+- batch sizes: 8, 16, 32, 64, 128
+- learning rates(Adam): 3e-4, 1e-4, 5e-5, 3e-5
 - Number of epochs: 3, 4
 
 ## Results

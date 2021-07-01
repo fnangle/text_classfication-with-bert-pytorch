@@ -93,9 +93,9 @@ def train_model(net, epoch=1):
         for batch_idx, (data, mask, target) in enumerate(train_loader):
             # optimizer.zero_grad()
             data, mask, target = data.to(device), mask.to(device), target.to(device)
-            loss, logits = net(data, token_type_ids=None, attention_mask=mask, labels=target)
+            output = net(data, token_type_ids=None, attention_mask=mask, labels=target)
             # logit是正负概率
-
+            loss,logits=output[0],output[1]
             loss = loss / accumulation_steps  # 梯度积累
             avg_loss.append(loss.item())
             loss.backward()

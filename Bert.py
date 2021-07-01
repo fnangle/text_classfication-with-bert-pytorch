@@ -131,7 +131,7 @@ def test_model(net):
             print(predict(output[0]), label.flatten())
             total += label.size(0)  # 逐次按batch递增
             correct += (predict(output[0]) == label.flatten()).sum().item()
-            print(f"正确分类的样本数 {correct}，总数 {total},准确率 {100.*correct/total:.3f}%")
+        print(f"正确分类的样本数 {correct}，总数 {total},准确率 {100.*correct/total:.3f}%")
 
 
 if __name__ == "__main__":

@@ -81,7 +81,7 @@ def predict(logits):
 
 '''训练'''
 
-def train_model(net, epoch=1):
+def train_model(net, epoch=4):
     avg_loss = []
     net.train()  # 将模型设置为训练模式
     net.to(device)
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     pre_net = BertForSequenceClassification.from_pretrained(path)
     params_dir = 'model/bert_base_model_beta.pkl'
 
-    model = train_model(pre_net, epoch=5)
+    model = train_model(pre_net, epoch=4)
     torch.save(model.state_dict(), params_dir)  # 保存模型参数
 
 

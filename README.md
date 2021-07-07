@@ -39,7 +39,9 @@ nlp text classification task program on IMDB dataset
 | TextCNN（keras）  | 87.27% |
 | Bert  | 95.18%| 
 
-### Bert-classification-new说明：
+
+
+## Bert-classification-new说明：
 - process：数据处理函数，把评论文本和标签转为list格式，注意训练和测试accuracy的文件都在代码中指定，自行修改。
 
 - classify：主函数，用于训练，用默认参数时，训练脚本:

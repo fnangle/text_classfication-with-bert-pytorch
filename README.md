@@ -44,7 +44,7 @@ nlp text classification task program on IMDB dataset
 ## Bert-classification-new说明：
 预训练模型：bert_base_multilingual_cased
 
-- process：数据处理函数，把评论文本和标签转为list格式，注意训练和测试accuracy的文件都在代码中指定，自行修改。
+- process：数据处理函数，把评论文本和标签转为list格式，注意训练和测试accuracy的文件都在代码中指定，自行修改,其中outdomain代表训练的负样本，indomain代表训练的正样本。
 
 - classify：主函数，用于训练，用默认参数时，训练脚本:
 

@@ -55,7 +55,7 @@ nlp text classification task program on IMDB dataset
 - test.py：用来测试模型accuracy或者用模型进行句子的筛选
 
   测acc：
-  `python test.py`
+  `CUDA_VISIBLE_DEVICES=1 python test.py`
 
   筛选句子：
-  `python test.py --is-select True --file candidate`
+  `CUDA_VISIBLE_DEVICES=1 python test.py --is-select True --file candidate`

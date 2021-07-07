@@ -18,14 +18,14 @@ parser.add_argument('--maxlen',type=int,default=512,help='sentence length in tra
 parser.add_argument('--batch-size',type=int,default=16)
 parser.add_argument('--lr',type=float,default=3e-5)
 parser.add_argument('--epoch',type=int,default=4)
-parser.add_argument('--train-dir',default='train_ids.pkl',help="save train file in pkl format")
+parser.add_argument('--train-dir',default='train_ids.pkl',help="save train file in pkl format,convenient for loading train files in next time")
 parser.add_argument('--path',default='bert_base_multilingual_cased',help="pretrained model path")
-parser.add_argument('--params-dir',default='mbert_base_bs16_beta.pkl',help="save trained model params")
+parser.add_argument('--params-dir',default='mbert_base_bs16_beta.pkl',help="save trained model params to this file")
 parser.add_argument('--num-labels',type=int,default=2,help="nums of labels for classification")
 
 parser.add_argument('--is-select',default=False,help='test or apply select')
 parser.add_argument('--treshold',type=float,default=0.7,help="treshold for select sentence of binary classification")
-parser.add_argument('--file',default=None,help='set candidate file for testing')
+parser.add_argument('--file',default=None,help='set candidate file for selecting')
 args = parser.parse_args()
 
 MAXLEN=args.maxlen - 2

@@ -40,18 +40,18 @@ nlp text classification task program on IMDB dataset
 | Bert  | 95.18%| 
 
 ### Bert-classification-new说明：
-process：数据处理函数，把评论文本和标签转为list格式，注意训练和测试accuracy的文件都在代码中指定，自行修改。
+- process：数据处理函数，把评论文本和标签转为list格式，注意训练和测试accuracy的文件都在代码中指定，自行修改。
 
-classify：主函数，用于训练，用默认参数时，训练脚本:
+- classify：主函数，用于训练，用默认参数时，训练脚本:
 
-`CUDA_VISIBLE_DEVICES=1 python classify.py`
+  `CUDA_VISIBLE_DEVICES=1 python classify.py`
 
-也可以自己定义参数
+  也可以自己定义参数
 
-test.py：用来测试模型accuracy或者用模型进行句子的筛选
+- test.py：用来测试模型accuracy或者用模型进行句子的筛选
 
-测acc：
-`python test.py`
+  测acc：
+  `python test.py`
 
-筛选句子：
-`python test.py --is-select True --file candidate`
+  筛选句子：
+  `python test.py --is-select True --file candidate`

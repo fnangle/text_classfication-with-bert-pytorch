@@ -120,6 +120,7 @@ def train_model(net, epoch=args.epoch,lr=args.lr,train_pkl=args.train_dir):
 
 
 def test_model(net,file=None,is_select=False,output=None):
+    batchsize=64
     #--------------------------------
     if is_select:   #to select data
         assert file is not None

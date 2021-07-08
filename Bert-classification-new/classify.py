@@ -133,7 +133,8 @@ def test_model(net,file=None,is_select=False,output=None):
     atten_tokens_eval=attention_masks(input_ids2)
     test_set = TensorDataset(torch.LongTensor(input_ids2),torch.LongTensor(atten_tokens_eval), torch.LongTensor(input_labels2))
     test_loader = DataLoader(dataset=test_set,
-                            batch_size=batchsize, )
+                            batch_size=batchsize, 
+                            num_workers=8)
     for i, (train,mask, label) in enumerate(test_loader):
         print(train.shape,mask.shape, label.shape)               #
         break

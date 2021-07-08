@@ -81,7 +81,8 @@ def train_model(net, epoch=args.epoch,lr=args.lr,train_pkl=args.train_dir):
     train_set = TensorDataset(torch.LongTensor(input_ids),torch.LongTensor(atten_token_train),torch.LongTensor(input_labels))
     train_loader = DataLoader(dataset=train_set,
                           batch_size=batchsize,
-                          shuffle=True
+                          shuffle=True,
+                          num_workers=4
                           )
 
     for i, (train,mask, label) in enumerate(train_loader):
@@ -135,7 +136,7 @@ def test_model(net,file=None,is_select=False,output=None):
     test_set = TensorDataset(torch.LongTensor(input_ids2),torch.LongTensor(atten_tokens_eval), torch.LongTensor(input_labels2))
     test_loader = DataLoader(dataset=test_set,
                             batch_size=batchsize, 
-                            num_workers=8)
+                            num_workers=4)
     for i, (train,mask, label) in enumerate(test_loader):
         print(train.shape,mask.shape, label.shape)               #
         break

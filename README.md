@@ -45,7 +45,7 @@ nlp text classification task program on IMDB dataset
 
 预训练模型：bert_base_multilingual_cased
 
-重构了用mbert分类的代码，可以用自己的数据训练得到的分类模型，根据分类预测结果，卡阈值选取句子，注意这里是二分类.已测试候选句量级为40w时能正常运行
+重构了用mbert分类的代码，可以用自己的数据训练得到的分类模型，根据分类预测结果，卡阈值选取句子，注意这里是二分类。已测试候选句量级为40w时能正常运行
 
 - process：数据处理函数，把评论文本和标签转为list格式，注意训练和测试accuracy的文件都在代码中指定，自行修改,其中outdomain代表训练的负样本，indomain代表训练的正样本。
 
